@@ -1,0 +1,65 @@
+[
+    {
+        "category": 2,
+        "name": "1",
+        "image": "products_images/product-4.jpg",
+        "short_desc": "",
+        "description": "",
+        "price": "100.00", 
+        "quantity": 5
+    }, 
+    {
+        "category": 2,
+        "name": "2",
+        "image": "products_images/product-21.jpg",
+        "short_desc": "",
+        "description": "",
+        "price": "10.00", 
+        "quantity": 3
+    }, 
+    {
+        "category": 3,
+        "name": "3", 
+        "image": "products_images/product-1.jpg", 
+        "short_desc": "", 
+        "description": "", 
+        "price": "5.00", 
+        "quantity": 1
+    }, 
+    {
+        "category": 3, 
+        "name": "4", 
+        "image": "products_images/product-2-sm.jpg", 
+        "short_desc": "", 
+        "description": "", 
+        "price": "5.00", 
+        "quantity": 5
+    }, 
+    {
+        "category": 4, 
+        "name": "5", 
+        "image": "products_images/product-3.jpg", 
+        "short_desc": "", 
+        "description": "", 
+        "price": "15.00", 
+        "quantity": 2
+    }, 
+    {
+        "category": 5, 
+        "name": "6", 
+        "image": "products_images/product-3-sm.jpg", 
+        "short_desc": "", 
+        "description": "", 
+        "price": "50.00", 
+        "quantity": 1
+    }, 
+    {
+        "category": 6, 
+        "name": "7", 
+        "image": "products_images/product-4-sm.jpg", 
+        "short_desc": "", 
+        "description": "", 
+        "price": "10.00", 
+        "quantity": 3
+    }
+]

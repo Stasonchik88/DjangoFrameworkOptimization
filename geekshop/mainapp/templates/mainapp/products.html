@@ -1,0 +1,78 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block header %}
+<div class="hero">
+	<div class="header clearfix">
+		{% include "mainapp/includes/inc_main_menu.html" %}
+	</div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<div class="details">
+	<div class="links clearfix">
+		<ul class="links-menu">
+			<li>
+				<a href="{% url 'products:category' 0 %}"
+					{% if request.resolver_match.kwargs.pk == '0' %}
+						class="active"
+					{% endif %}
+				>
+					все
+				</a>
+			</li>
+			{% for link in categories %}
+			<li>
+				<a href="{% url 'products:category' link.pk %}"
+					{% if request.resolver_match.kwargs.pk|add:'0' == link.pk %}
+						class="active"
+					{% endif %}
+				>
+					{{ link.name }}
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="details-products">
+		<div class="details-slider">
+			<div class="slider-product">
+				<img src="/media/{{ hot_product.image }}">
+			</div>
+			<div class="slider-control">
+				{% for control in controls %}
+					<div class="block">
+						<a href="#"><img src="/media/{{ hot_product.image }}" alt="">
+							<div class="text"></div>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="description">
+			<h3 class="big-bold">{{ hot_product.name }}</h3>
+			<h3 class="red">горячее предложение</h3>
+			<p class="price">{{ hot_product.price }}<span>руб</span></p>
+			<a href="{% url 'basket:add' hot_product.pk %}" class="red-button">
+				заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+			</a>
+			<div class="description-text">
+				{{ hot_product.description }}
+			</div>
+		</div>
+	</div>
+
+	<div class="related">
+		<div class="title clearfix">
+			<h2>Похожие продукты</h2>
+			<a class="explore" href="#">показать все <img src="{% static "img/arrow.png" %}" alt=""></a>
+		</div>
+		<div class="tab-content">
+			{% include "mainapp/includes/inc_products.html" %}
+		</div>
+	</div>
+</div>
+{% endblock content %}
