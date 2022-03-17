@@ -9,9 +9,12 @@ from django.forms import inlineformset_factory
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 
+from django.http import JsonResponse
+
 from basketapp.models import Basket
 from ordersapp.models import Order, OrderItem
 from ordersapp.forms import OrderItemForm
+from mainapp.models import Product
 
 
 def order_forming_complete(request, pk):
@@ -19,6 +22,14 @@ def order_forming_complete(request, pk):
     order.status = Order.SENT_TO_PROCEED
     order.save()
     return HttpResponseRedirect(reverse('ordersapp:orders_list'))
+
+def get_product_price(request, pk):
+    if request.is_ajax():
+        product = Product.objects.filter(pk=int(pk)).first()
+        if product:
+            return JsonResponse({'price': product.price})
+        else:
+            return JsonResponse({'price': 0})
 
 
 class OrderList(ListView):
