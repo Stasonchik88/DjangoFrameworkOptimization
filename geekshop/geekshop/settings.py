@@ -91,14 +91,14 @@ if DJANGO_PRODUCTION:
     DJANGO_DB_USER = os.environ.get('DJANGO_DB_USER', 'django')
     DJANGO_DB_PASSWORD = os.environ.get('DJANGO_DB_PASSWORD', 'django')
     DJANGO_DB_HOST = os.environ.get('DJANGO_DB_HOST', 'localhost')
-    DJANGO_DB_PORT = int(os.environ.get('DJANGO_DB_PORT', ''))
+    # DJANGO_DB_PORT = int(os.environ.get('DJANGO_DB_PORT', ''))
 
     assert all([
         DJANGO_DB_NAME,
         DJANGO_DB_USER,
         DJANGO_DB_PASSWORD,
         DJANGO_DB_HOST,
-        DJANGO_DB_PORT,
+        # DJANGO_DB_PORT,
     ])
 
     DATABASES = {
@@ -108,7 +108,7 @@ if DJANGO_PRODUCTION:
             'USER': DJANGO_DB_USER,
             'PASSWORD': DJANGO_DB_PASSWORD,
             'HOST': DJANGO_DB_HOST,
-            'PORT': DJANGO_DB_PORT,
+            # 'PORT': DJANGO_DB_PORT,
         }
     }
 else:
