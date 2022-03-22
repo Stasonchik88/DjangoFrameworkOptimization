@@ -91,7 +91,7 @@ if DJANGO_PRODUCTION:
     DJANGO_DB_USER = os.environ.get('DJANGO_DB_USER', 'django')
     DJANGO_DB_PASSWORD = os.environ.get('DJANGO_DB_PASSWORD', 'django')
     DJANGO_DB_HOST = os.environ.get('DJANGO_DB_HOST', 'localhost')
-    DJANGO_DB_PORT = int(os.environ.get('DJANGO_DB_PORT', '5432'))
+    DJANGO_DB_PORT = int(os.environ.get('DJANGO_DB_PORT', ''))
 
     assert all([
         DJANGO_DB_NAME,
@@ -104,7 +104,7 @@ if DJANGO_PRODUCTION:
     DATABASES = {
         'default': {
             'NAME': DJANGO_DB_NAME,
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'ENGINE': 'django.db.backends.mysql',
             'USER': DJANGO_DB_USER,
             'PASSWORD': DJANGO_DB_PASSWORD,
             'HOST': DJANGO_DB_HOST,
