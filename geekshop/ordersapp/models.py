@@ -88,7 +88,7 @@ class OrderItem(models.Model):
 
 @receiver(pre_save, sender=OrderItem)
 def product_quantity_update_save(sender, update_fields, instance, **kwargs):
-    if update_fields is 'quantity' or 'product':
+    if update_fields == 'quantity' or update_fields == 'product':
         if instance.pk:
             instance.product.quantity -= instance.quantity - OrderItem.objects.get(pk=instance.pk).quantity
         else:
