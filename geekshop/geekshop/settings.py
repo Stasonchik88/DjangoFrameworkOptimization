@@ -29,7 +29,7 @@ DJANGO_PRODUCTION = True
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not DJANGO_PRODUCTION
 
-ALLOWED_HOSTS = ['*']  if DJANGO_PRODUCTION else []
+ALLOWED_HOSTS = ['*']  # if DJANGO_PRODUCTION else []
 
 
 # Application definition
