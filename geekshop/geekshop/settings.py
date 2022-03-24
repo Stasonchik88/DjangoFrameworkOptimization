@@ -27,8 +27,9 @@ DJANGO_PRODUCTION = bool(os.environ.get('DJANGO_PRODUCTION', False))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not DJANGO_PRODUCTION
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] if DJANGO_PRODUCTION else []
+ALLOWED_HOSTS = ['*']  # if DJANGO_PRODUCTION else []
 
 
 # Application definition
