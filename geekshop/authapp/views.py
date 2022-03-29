@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserEditForm, ShopUserProfileEditForm
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.db import transaction
 from .utils import send_verify_mail
@@ -53,6 +54,7 @@ def register(request):
     
     
 @transaction.atomic
+@login_required
 def edit(request):
     title = 'редактирование'
     
