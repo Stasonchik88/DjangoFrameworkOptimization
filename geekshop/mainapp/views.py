@@ -6,7 +6,7 @@ from basketapp.models import Basket
 
 # Create your views here.
 def main(request):
-    products = Product.objects.all()[:4]
+    products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category')[:3]
     basket = get_basket(request.user)
 
     return render(request, 'mainapp/index.html', context={
@@ -74,3 +74,8 @@ def contact(request):
     return render(request, 'mainapp/contact.html', context={
         'title': 'Контакты',
     })
+
+# def load_from_json(file_name):
+#     with open(os.path.join(JSON_PATH, file_name + '.json'), 'r',\
+#     errors='ignore') as infile:
+#     return json.load(infile)

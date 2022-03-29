@@ -29,8 +29,8 @@ DJANGO_PRODUCTION = bool(os.environ.get('DJANGO_PRODUCTION', False))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not DJANGO_PRODUCTION
 
-ALLOWED_HOSTS = ['*']  if DJANGO_PRODUCTION else ['*']
-
+ALLOWED_HOSTS = ['127.0.0.1']  if DJANGO_PRODUCTION else ['127.0.0.1']
+INTERNAL_IPS = ['127.0.0.1']
 
 # Application definition
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'social_django',
     'debug_toolbar',
     'template_profiler_panel',
+    'django_extensions',
 
     'mainapp',
     'authapp',
