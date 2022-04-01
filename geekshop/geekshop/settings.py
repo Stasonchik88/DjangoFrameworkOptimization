@@ -29,7 +29,7 @@ DJANGO_PRODUCTION = bool(os.environ.get('DJANGO_PRODUCTION', False))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not DJANGO_PRODUCTION
 
-ALLOWED_HOSTS = ['127.0.0.1']  if DJANGO_PRODUCTION else ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1']  if DJANGO_PRODUCTION else []
 INTERNAL_IPS = ['127.0.0.1']
 
 # Application definition
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 if DEBUG:
